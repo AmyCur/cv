@@ -11,7 +11,7 @@ import Button from '../components/Button.astro';
 		 <div id="intro">
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in consequat odio. Aenean bibendum malesuada turpis, at dapibus lacus elementum sed </p>
 			<div id="buttons">
-				<button onclick='document.getElementById("games").scrollIntoView({behavior: "smooth"})'>Go to my Projects</button>
+				<Button onClick='document.getElementById("games").scrollIntoView({behavior: "smooth"})'>Go to my Projects</Button>
 				<Button href="https://github.com/AmyCur">Go to my GitHub</Button>
 			</div>
 		</div>
@@ -68,6 +68,36 @@ import Button from '../components/Button.astro';
 				margin-bottom: 2vh;
 			}
 		}
+	}
+
+	@media screen and (max-width: 670px) {
+		p{
+			font-size: .5em;
+		}
+
+		#projects{
+			#project{
+				h1{
+					font-size: 1em;
+				}
+			}
+		}
+		
+
+		#buttons{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			button{
+				font-size: .3em;
+				width: 80%;
+			}
+
+		}
+	}
+
+	@media screen and (min-width: 671px) {
+		font-size: .8em;
 	}
 
 	#home{

@@ -19,6 +19,12 @@ const {Page="Page"} = Astro.props;
 <style lang="scss">
     $height: 10vh;
 
+    @media screen and (max-width: 240px) {
+        #right-module{
+            opacity: 0;
+        }
+    }
+
     #top-bar{
         
         background: #232c37;
@@ -39,7 +45,7 @@ const {Page="Page"} = Astro.props;
                 height: 2vh;
                 background: none;
                 border: none;
-                font-size: 1.5vw;
+                font-size: 1.5em;
 
                 margin: {
                     left: .6vw;
@@ -48,7 +54,7 @@ const {Page="Page"} = Astro.props;
             }
 
             #left-module{
-                font-size: 2vw;
+                font-size: 1.5em;
                 display: flex;
                 align-items: center;
                 
@@ -59,7 +65,7 @@ const {Page="Page"} = Astro.props;
                     height: 100%;
 
                     button{
-                        font-size: 1.5vw;
+                        font-size: 1em;
                         height: 100%;
 
                         &:hover{
@@ -73,6 +79,8 @@ const {Page="Page"} = Astro.props;
             }
 
             #right-module{
+                transition: opacity .2s ease;
+                
                 *{
                     transition: all .1s ease;
                 }           
