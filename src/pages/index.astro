@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Project from '../components/project.astro';
+import FadeElement from '../components/FadeElement.astro';
+import Button from '../components/Button.astro';
 ---
 
 <Layout Page="Home">
@@ -8,10 +10,28 @@ import Project from '../components/project.astro';
 		<!-- <video autoplay loop src="/test.mp4"  width="" height="" id="vid"></video> -->
 		 <div id="intro">
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in consequat odio. Aenean bibendum malesuada turpis, at dapibus lacus elementum sed </p>
-			<img src="/pine-tree.jpg">
+			<div id="buttons">
+				<button onclick='document.getElementById("games").scrollIntoView({behavior: "smooth"})'>Go to my Projects</button>
+				<Button href="https://github.com/AmyCur">Go to my GitHub</Button>
+			</div>
 		</div>
-		 <h1>My Games</h1>
+		<h1 id="games">My Games</h1>
 		<div id="projects">
+			<ul>
+				<Project Heading="Meta Menaces" Image="url(/pine-tree.jpg)" Height="30vh" Link="/projects/meta-menaces"/>
+				<Project Heading="Other Project" Image="url(/tree2.avif)" Height="30vh" Link="/projects/other-proj"/>
+			</ul>	
+			<ul>
+				<Project Heading="Project" Image="url(/autumn.jpg)" Height="30vh" />
+				<Project Heading="Important" Image="url(/pine-tree.jpg)" Height="30vh" />
+			</ul>	
+			<ul>
+				<Project Heading="Project" Image="url(/autumn.jpg)" Height="30vh" />
+				<Project Heading="Project" Image="url(/autumn.jpg)" Height="30vh" />
+			</ul>	
+			
+		</div>
+		<div id="projecaats">
 			<ul>
 				<Project Heading="Meta Menaces" Image="url(/pine-tree.jpg)" Height="44vh" Link="/projects/meta-menaces"/>
 				<Project Heading="Other Project" Image="url(/tree2.avif)" Height="20vh" Link="/projects/other-proj"/>
@@ -27,6 +47,8 @@ import Project from '../components/project.astro';
 			</ul>	
 			
 		</div>
+
+		
 	</div>
 	
 </Layout>
@@ -36,6 +58,7 @@ import Project from '../components/project.astro';
 		display: flex;
 		justify-content: center;
 		align-items: start;
+		position: relative;
 
 		ul{
 			display: flex;
@@ -53,11 +76,13 @@ import Project from '../components/project.astro';
 		align-items: center;
 		
 		#intro{
+			height: 90vh;
 			width: 50%;
 			font-size: 2.5em;
 			display: flex;
-			justify-content: space-around;
+			flex-direction: column;
 			align-items: center;
+			justify-content: center;
 
 			img{
 				height: 8em;
@@ -65,7 +90,23 @@ import Project from '../components/project.astro';
 			}
 
 			p{
-				width: 50%;
+				width: 80%;
+			}
+
+			#buttons{
+				button{
+					// background: linear-gradient(to right top, #515782, #8892d3);
+					background-color: white;
+					color: black;
+					border: none;
+					padding: .5em;
+					border-radius: .5em;
+					transition: scale .2s ease;
+
+					&:hover{
+						scale: 1.3;
+					}
+				}
 			}
 		}
 	}

@@ -1,8 +1,7 @@
 ---
-import "../style/scss/TopBar.scss"
 const {Page="Page"} = Astro.props;
 ---
-
+<!-- #323F50 -->
 <div id="top-bar">
     <div id="modules">
         <div id="left-module">
@@ -16,3 +15,94 @@ const {Page="Page"} = Astro.props;
         </div>
     </div>
 </div>
+
+<style lang="scss">
+    $height: 10vh;
+
+    #top-bar{
+        
+        background: #232c37;
+        background: linear-gradient(0deg, #232c37  0%, #151a21  100%);
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+
+        #modules{
+            display: flex;
+            height: $height;
+            width: 90%;
+            justify-content: space-between;
+            align-items: center;
+
+            button{
+                width: 6w;
+                height: 2vh;
+                background: none;
+                border: none;
+                font-size: 1.5vw;
+
+                margin: {
+                    left: .6vw;
+                    right: .6vw;
+                };
+            }
+
+            #left-module{
+                font-size: 2vw;
+                display: flex;
+                align-items: center;
+                
+                a{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+
+                    button{
+                        font-size: 1.5vw;
+                        height: 100%;
+
+                        &:hover{
+                            i{
+                                color: #aaaaaa;                        
+                            }
+                        }
+                    }
+                }
+                
+            }
+
+            #right-module{
+                *{
+                    transition: all .1s ease;
+                }           
+
+                #bluesky:hover{
+                    i{
+                        color: #1185FE;
+                    }
+                }
+
+                #linkedin:hover{
+                    i{
+                    color: #0A63BC;
+                    }
+                }
+
+                #instagram:hover{
+                    i{
+                        color: #FD0069;
+                    }
+                }
+
+                #tumblr:hover{
+                    i{
+                        color: #0077ff;
+                    }
+                }
+            }
+        }
+        
+
+    }
+</style>

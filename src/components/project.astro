@@ -1,6 +1,5 @@
 ---
 import "../style/scss/project.scss"
-
 const {
     Image="url(https://AmyCur.github.io/tree.jpg)",
     Heading="Heading", 
@@ -13,4 +12,60 @@ const {
         <h1>{Heading}</h1>
     </div>
 </a>
+
+<style lang="text/scss">
+#project{
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border: .13em solid #3D444D;   
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: 1vw;
+    transition: background-size .2s ease;
+    background-color: rgba(0,0,0,0);
+    background-blend-mode: multiply;
+    
+    h1{
+        font-size: 2em;
+        transition: color .2s ease;
+        color: #ffffff00;
+        text-align: center;
+    }
+
+    &:hover{
+        border: .13em solid #353a40;   
+
+        h1{
+            color: #fff;
+        }     
+        transition: background-color .1s ease;
+
+        
+        background-color: rgba(0,0,0,.5);
+        background-blend-mode: multiply;
+    }
+
+    @media (pointer:none), (pointer:coarse) {
+        border: .13em solid #353a40;   
+
+        h1{
+            color: #fff;
+        }     
+        transition: background-color .1s ease;
+
+        
+        background-color: rgba(0,0,0,.5);
+        background-blend-mode: multiply;
+    }
+    
+
+
+}
+</style>
 
