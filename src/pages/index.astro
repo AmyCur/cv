@@ -1,24 +1,72 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Project from '../components/project.astro';
-import "../style/scss/home.scss";
 ---
 
 <Layout Page="Home">
-	<div id="projects">
-		<ul>
-			<Project Heading="Meta Menaces" Image="url(/pine-tree.jpg)" Height="44vh" Link="/projects/meta-menaces"/>
-			<Project Heading="Other Project" Image="url(/tree2.avif)" Height="20vh" Link="/projects/other-proj"/>
-		</ul>	
-		<ul>
-			<Project Heading="Project" Image="url(/autumn.jpg)" Height="20vh" />
-			<Project Heading="Important" Image="url(/pine-tree.jpg)" Height="44vh" />
-		</ul>	
-		<ul>
-			<Project Heading="Project" Image="url(/autumn.jpg)" Height="20vh" />
-			<Project Heading="Project" Image="url(/autumn.jpg)" Height="20vh" />
-			<Project Heading="Project" Image="url(/autumn.jpg)" Height="20vh" />
-		</ul>	
-		
+	<div id="home">
+		<!-- <video autoplay loop src="/test.mp4"  width="" height="" id="vid"></video> -->
+		 <div id="intro">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in consequat odio. Aenean bibendum malesuada turpis, at dapibus lacus elementum sed </p>
+			<img src="/pine-tree.jpg">
+		</div>
+		 <h1>My Games</h1>
+		<div id="projects">
+			<ul>
+				<Project Heading="Meta Menaces" Image="url(/pine-tree.jpg)" Height="44vh" Link="/projects/meta-menaces"/>
+				<Project Heading="Other Project" Image="url(/tree2.avif)" Height="20vh" Link="/projects/other-proj"/>
+			</ul>	
+			<ul>
+				<Project Heading="Project" Image="url(/autumn.jpg)" Height="20vh" />
+				<Project Heading="Important" Image="url(/pine-tree.jpg)" Height="44vh" />
+			</ul>	
+			<ul>
+				<Project Heading="Project" Image="url(/autumn.jpg)" Height="20vh" />
+				<Project Heading="Project" Image="url(/autumn.jpg)" Height="20vh" />
+				<Project Heading="Project" Image="url(/autumn.jpg)" Height="20vh" />
+			</ul>	
+			
+		</div>
 	</div>
+	
 </Layout>
+
+<style lang="text/scss">
+	#projects{
+		display: flex;
+		justify-content: center;
+		align-items: start;
+
+		ul{
+			display: flex;
+			flex-direction: column;
+			
+			*{
+				margin-bottom: 2vh;
+			}
+		}
+	}
+
+	#home{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		
+		#intro{
+			width: 50%;
+			font-size: 2.5em;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+
+			img{
+				height: 8em;
+				border-radius: .2em;
+			}
+
+			p{
+				width: 50%;
+			}
+		}
+	}
+</style>

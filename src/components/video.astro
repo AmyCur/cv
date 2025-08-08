@@ -1,0 +1,48 @@
+---
+const {width=720, height=405, url="https://www.youtube.com/embed/wN-mZtbX2Pg?si=TKW43YUCFMHevELc"} = Astro.props;
+---
+
+<div data-width={width} 
+    data-height={height}
+    data-url={url}
+    class="data-div">
+</div>
+
+<script>
+    function sizeVideo(){
+        const dataDivs: HTMLCollectionOf<HTMLDivElement> = document.getElementsByClassName("data-div") as HTMLCollectionOf<HTMLDivElement>;
+        const screenScale = [window.screen.width, window.screen.height];
+
+        for(const d of dataDivs){
+            let width: any = d.dataset.width;
+            let height: any = d.dataset.height;
+            const url = d.dataset.url;
+
+            width *= screenScale[0]/1920;
+            height *= screenScale[1]/1080;
+
+            d.innerHTML =`<iframe width=${width} height=${height} title=\"Video of my Meta Menaces Project\" src=${url}/>`;
+        }
+
+
+        // const dataDiv: HTMLElement = document.getElementById("data-div") as HTMLElement;
+        // let width: any = dataDiv?.dataset.width;
+        // let height: any = dataDiv?.dataset.height;
+        // const url = dataDiv?.dataset.url;
+        
+
+        // const screenScale = [window.screen.width, window.screen.height];
+
+        // console.log(screenScale)
+
+        // width *= screenScale[0]/1920;
+        // height *= screenScale[1]/1080;
+
+        // console.log([width, height, url])
+
+        // dataDiv.innerHTML =`<iframe width=${width} height=${height} title=\"Video of my Meta Menaces Project\" src=${url}/>`;
+    }
+
+    document.addEventListener("DOMContentLoaded", sizeVideo);
+    window.addEventListener("resize", sizeVideo)
+</script>
