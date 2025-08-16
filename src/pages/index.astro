@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Project from '../components/project.astro';
 import FadeElement from '../components/FadeElement.astro';
 import Button from '../components/Button.astro';
+const allPosts = Object.values(import.meta.glob('./projects/*.astro', { eager: true }));
+
 ---
 
 <Layout Page="Home">
@@ -16,37 +18,12 @@ import Button from '../components/Button.astro';
 			</div>
 		</div>
 		<h1 id="games">My Games</h1>
-		<div id="projects">
-			<ul>
-				<Project Heading="Meta Menaces" Image="url(/pine-tree.jpg)" Height="30vh" Link="/projects/meta-menaces"/>
-				<Project Heading="Other Project" Image="url(/tree2.avif)" Height="30vh" Link="/projects/other-proj"/>
-			</ul>	
-			<ul>
-				<Project Heading="Project" Image="url(/autumn.jpg)" Height="30vh" />
-				<Project Heading="Important" Image="url(/pine-tree.jpg)" Height="30vh" />
-			</ul>	
-			<ul>
-				<Project Heading="Project" Image="url(/autumn.jpg)" Height="30vh" />
-				<Project Heading="Project" Image="url(/autumn.jpg)" Height="30vh" />
-			</ul>	
-			
+		<div id="project-master">
+			<div id="projects">
+				{allPosts.map((post: any) => <Project Heading={post.Heading}, Image={post.Preview}, Link={post.url}/>)}
+			</div>
 		</div>
-		<div id="projecaats">
-			<ul>
-				<Project Heading="Meta Menaces" Image="url(/pine-tree.jpg)" Height="44vh" Link="/projects/meta-menaces"/>
-				<Project Heading="Other Project" Image="url(/tree2.avif)" Height="20vh" Link="/projects/other-proj"/>
-			</ul>	
-			<ul>
-				<Project Heading="Project" Image="url(/autumn.jpg)" Height="20vh" />
-				<Project Heading="Important" Image="url(/pine-tree.jpg)" Height="44vh" />
-			</ul>	
-			<ul>
-				<Project Heading="Project" Image="url(/autumn.jpg)" Height="20vh" />
-				<Project Heading="Project" Image="url(/autumn.jpg)" Height="20vh" />
-				<Project Heading="Project" Image="url(/autumn.jpg)" Height="20vh" />
-			</ul>	
-			
-		</div>
+		
 
 		
 	</div>
@@ -54,19 +31,26 @@ import Button from '../components/Button.astro';
 </Layout>
 
 <style lang="text/scss">
-	#projects{
+
+	#project-master{
+		width: 70vw;
+		height: fit-content;
 		display: flex;
 		justify-content: center;
-		align-items: start;
-		position: relative;
 
-		ul{
+		#projects{
+			width: 100%;
 			display: flex;
-			flex-direction: column;
+			flex-wrap: wrap;
 			
-			*{
-				margin-bottom: 2vh;
-			}
+			// ul{
+			// 	display: flex;
+			// 	flex-direction: column;
+				
+			// 	*{
+			// 		margin-bottom: 2vh;
+			// 	}
+			// }
 		}
 	}
 
@@ -106,7 +90,7 @@ import Button from '../components/Button.astro';
 		align-items: center;
 		
 		#intro{
-			height: 90vh;
+			height: 80vh;
 			width: 50%;
 			font-size: 2.5em;
 			display: flex;
@@ -121,6 +105,7 @@ import Button from '../components/Button.astro';
 
 			p{
 				width: 80%;
+				text-align: center;
 			}
 
 			#buttons{
