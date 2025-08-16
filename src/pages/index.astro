@@ -3,7 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Project from '../components/project.astro';
 import FadeElement from '../components/FadeElement.astro';
 import Button from '../components/Button.astro';
-const allPosts = Object.values(import.meta.glob('./projects/*.astro', { eager: true }));
+
+const allPosts = Object.values(import.meta.glob('./projects/*.md', { eager: true }));
 
 ---
 
@@ -20,7 +21,7 @@ const allPosts = Object.values(import.meta.glob('./projects/*.astro', { eager: t
 		<h1 id="games">My Games</h1>
 		<div id="project-master">
 			<div id="projects">
-				{allPosts.map((post: any) => <Project Heading={post.Heading}, Image={post.Preview}, Link={post.url}/>)}
+				{allPosts.map((post: any) => <Project Heading={post.frontmatter.title}, Image={post.frontmatter.image}, Link={post.url}/>)}
 			</div>
 		</div>
 		
